@@ -24,13 +24,19 @@ public class PhysicsButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //check if pressed
-        if(!isPressed && GetValue() +threshold >= 1){
+        var pressedVal = GetValue() +threshold; 
+        
+        //check if pressed is pressed will be false and pressed val > 0.8
+        if(!isPressed && pressedVal >= 0.8){
+            Debug.Log("pressedVal");
+            Debug.Log(pressedVal); 
             Pressed();
         }
 
-        //check if released
-        if(isPressed && GetValue() + threshold <= 0){
+        //check if released, is pressed will be true and pressed val will be < 0.79
+        if(isPressed && pressedVal <= 0.79){
+            Debug.Log("pressedVal");
+            Debug.Log(pressedVal); 
             Released(); 
         }
     }
